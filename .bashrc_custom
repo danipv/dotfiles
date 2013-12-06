@@ -16,6 +16,10 @@ export LS_OPTIONS='--color=auto'
 export CLICOLOR='Yes'
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
+# Locale es_ES
+export LC_ALL=es_ES.UTF-8
+export LC_TYPE=es_ES.UTF-8
+
 # Prompt with Git branch and status colored
 export PS1=$GREEN"\u@\h"'$(
     if [[ $(__git_ps1) =~ \*\)$ ]]

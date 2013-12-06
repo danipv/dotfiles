@@ -27,6 +27,7 @@
 (setq show-trailing-whitespace t)
 (setq suggest-key-bindings t)
 (setq vc-follow-symlinks t)
+(global-linum-mode 1)
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -41,7 +42,7 @@
  '(fundamental-mode-default ((t (:inherit default))))
  '(highlight ((((class color) (min-colors 8)) (:background "white" :foreground "magenta"))))
  '(isearch ((((class color) (min-colors 8)) (:background "yellow" :foreground "black"))))
- '(linum ((t (:foreground "black" :weight bold))))
+ '(linum ((t (:foreground "gray" :weight normal))))
  '(region ((((class color) (min-colors 8)) (:background "white" :foreground "magenta"))))
  '(secondary-selection ((((class color) (min-colors 8)) (:background "gray" :foreground "cyan"))))
  '(show-paren-match ((((class color) (background light)) (:background "black"))))
@@ -75,12 +76,3 @@
 (require 'jade-mode)    
 (add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
-
-;; ----------------------
-;; ------ Org Mode ------
-;; ----------------------
-(require 'org-install)
-(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-(define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
-(setq org-log-done t)
