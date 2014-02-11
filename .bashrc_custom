@@ -31,3 +31,6 @@ export PS1=$GREEN"\u@\h"'$(
 
 # More Aliases
 alias gg='git status -s'
+
+# Launch simple http server from any directory
+alias ss='python -m SimpleHTTPServer'
