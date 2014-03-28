@@ -31,6 +31,18 @@ export PS1=$GREEN"\u@\h"'$(
 
 # More Aliases
 alias gg='git status -s'
+alias hh='hg status'
 
 # Launch simple http server from any directory
 alias ss='python -m SimpleHTTPServer'
+
+# Config for virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+
+# Bash completion
+# require: apt-get install bash-completion
+# Use bash-completion, if available
+if [ -f /etc/bash_completion ]; then
+  . /etc/bash_completion
+fi
