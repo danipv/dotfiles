@@ -57,10 +57,6 @@
 (global-set-key "\M-=" 'align-equals)
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-c;" 'comment-or-uncomment-region)
-(global-set-key "\M-n" 'next5)
-(global-set-key "\M-p" 'prev5)
-(global-set-key "\M-o" 'other-window)
-(global-set-key "\M-i" 'back-window)
 (global-set-key "\C-z" 'zap-to-char)
 (global-set-key "\C-h" 'backward-delete-char)
 (global-set-key "\M-d" 'delete-word)
@@ -68,15 +64,21 @@
 (global-set-key "\M-u" 'zap-to-char)
 
 ;; ---------------------------
+;; --   python-for-emacs    --
+;; ---------------------------
+;;(load-file "~/emacs-for-python/epy-init.el")
+
+;; ---------------------------
 ;; -- JS Mode configuration --
 ;; ---------------------------
 (load "js-config.el")
-
 
 ;; -----------
 ;; -- Hooks --
 ;; ___________
 (add-hook 'html-mode-hook
-       (lambda ()
+          (lambda ()
           ;; Default indentation is usually 2 spaces, changing to 4.
           (set (make-local-variable 'sgml-basic-offset) 4)))
+
+(setq-default indent-tabs-mode nil)
