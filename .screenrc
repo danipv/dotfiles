@@ -85,9 +85,11 @@ sorendition "+b kG"
 hardstatus alwayslastline "%H %-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<"  
 
 # 2.3) Autoload two screen tabs for emacs/bash.
-#screen -t emacs 0
-#screen -t node 1
-#screen -t bash 2
+screen -t emacs 0
+screen -t emacs2 1
+screen -t eburyonline 2
+screen -t bos 3
+screen -t fxsuite 4
 
 # 2.4) Description of the keywords used in hardstatus
 # caption always "%?%F%{-b bc}%:%{-b bb}%?%C|%D|%M %d|%H%?%F%{+u wb}%? %L=%-Lw%45>%{+b by}%n%f* %t%{-}%+Lw%-0<"
@@ -129,3 +131,11 @@ hardstatus alwayslastline "%H %-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<"
 #    %+Lw     - window list from the next window on (-), show window flags (L)
 #    %-0<     - truncation/padding point.  Place this point zero spaces (0)
 #               from the right margin (-).
+
+## -------------------------------------------------------------------------------------------------
+## -- 3) Other tweaks 
+##     
+## -------------------------------------------------------------------------------------------------
+
+# 3.1) Scrollwheel
+#termcapinfo xterm* ti@:te@
