@@ -16,6 +16,7 @@
 (require 'whitespace)
 (require 'dired-x)
 (require 'compile)
+(require 'less-css-mode)
 (ido-mode t)
 (menu-bar-mode -1)
 (normal-erase-is-backspace-mode 1)
@@ -62,20 +63,25 @@
 (global-set-key "\M-d" 'delete-word)
 (global-set-key "\M-h" 'backward-delete-word)
 (global-set-key "\M-u" 'zap-to-char)
+(global-set-key (kbd "C-c d") 'duplicate-current-line-or-region)
 
 ;; ---------------------------
-;; --   python-for-emacs    --
+;; --   Python mode hooks   --
 ;; ---------------------------
-;;(load-file "~/emacs-for-python/epy-init.el")
+(defun python-mode-keys ()
+  "Modify keymaps used by 'python-mode'."
+  (local-set-key (kbd "C-c C-b") 'python-add-breakpoint))
+
+(add-hook 'python-mode-hook 'python-mode-keys)
 
 ;; ---------------------------
 ;; -- JS Mode configuration --
 ;; ---------------------------
 (load "js-config.el")
 
-;; -----------
-;; -- Hooks --
-;; ___________
+;; ---------------------
+;; -- HTML mode Hooks --
+;; _____________________
 (add-hook 'html-mode-hook
           (lambda ()
           ;; Default indentation is usually 2 spaces, changing to 4.
