@@ -17,6 +17,7 @@
 (require 'dired-x)
 (require 'compile)
 (require 'less-css-mode)
+(require 'python-django)
 (ido-mode t)
 (menu-bar-mode -1)
 (normal-erase-is-backspace-mode 1)
@@ -88,3 +89,5 @@
           (set (make-local-variable 'sgml-basic-offset) 4)))
 
 (setq-default indent-tabs-mode nil)
+
+(global-set-key (kbd "C-x j") 'python-django-open-project)
