@@ -1,5 +1,4 @@
 # .bash_profile file
-# By Balaji S. Srinivasan (balajis@stanford.edu)
 #
 # Concepts:
 # http://www.joshstaiger.org/archives/2005/07/bash_profile_vs.html
@@ -11,17 +10,6 @@
 #        connection (in Ubuntu)
 #
 #    3) .bash_profile imports .bashrc in our script, but not vice versa.
-#
-#    4) .bashrc imports .bashrc_custom in our script, which can be used to
-#        override variables specified here.
-#
-# When using GNU screen:
-#
-#    1) .bash_profile is loaded the first time you login, and should be used
-#       only for paths and environmental settings
-
-#    2) .bashrc is loaded in each subsequent screen, and should be used for
-#       aliases and things like writing to .bash_eternal_history (see below)
 #
 # Do 'man bashrc' for the long version or see here:
 # http://en.wikipedia.org/wiki/Bash#Startup_scripts
@@ -49,7 +37,6 @@
 
 # Factor out all repeated profile initialization into .bashrc
 #  - All non-login shell parameters go there
-#  - All declarations repeated for each screen session go there
 if [ -f ~/.bashrc ]; then
    source ~/.bashrc
 fi
