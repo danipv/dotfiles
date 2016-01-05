@@ -61,13 +61,14 @@ export LC_ALL=POSIX
 # 2.6) Git & Mercurial
 alias gg='git status -s'
 alias hh='hg status'
+alias hb='hg branch'
 
 # 2.7) Python shortcuts
 alias ss='python -m SimpleHTTPServer'
 
-## -----------------------
-## --   Set up python   --
-## -----------------------
+## -------------------------
+## --  Set up virtualenv  --
+## -------------------------
 
 # Config for virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
@@ -95,9 +96,9 @@ export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 export LC_ALL=es_ES.UTF-8
 export LC_TYPE=es_ES.UTF-8
 
-## ------------------------------------------
-## --  Set up bash prompt                  --
-## ------------------------------------------
+## -----------------------------------
+## --  Set up Git/Mercurial prompt  --
+## -----------------------------------
 
 # Colors
 # http://unix.stackexchange.com/questions/124407/what-color-codes-can-i-use-in-my-ps1-prompt
@@ -105,29 +106,29 @@ COLOR_OFF="\[\033[0m\]"       # Text Reset
 MAGENTA="\[\033[0;35m\]"
 BLUE="\[\033[34m\]"
 CYAN="\[\033[0;36m\]"
-GREEN="\[\033[0;32m\]"
-RED="\[\033[38;5;196m\]"
+GREEN="\[\033[38;5;41m\]"
+PINK="\[\033[38;5;197m\]"
 ORANGE="\[\033[38;5;214m\]"
-YELLOW="\[\033[38;5;220m\]"
-
-# Make prompt informative
-# See:  http://www.ukuug.org/events/linux2003/papers/bash_tips/
-#PS1=$RED"\u"$COLOR_OFF" at "$ORANGE"\h"$COLOR_OFF" in "$YELLOW"\w"$COLOR_OFF"\n$ "
-
-## ------------------------------------------
-## --  Set up Git prompt & autocompletion  --
-## ------------------------------------------
+YELLOW="\[\033[38;5;221m\]"
 
 source ~/dotfiles/.git-completion.bash
 source ~/dotfiles/.git-prompt.sh
+source ~/dotfiles/.hg-prompt.bash
 
 GIT_PS1_SHOWDIRTYSTATE=true
 
-# Prompt with Git branch and status colored
-export PS1=$RED"\u"$COLOR_OFF" at "$ORANGE"\h"$COLOR_OFF" in "$YELLOW"\w"'$(
+in_repo() {
+    [[ `hg branch 2> /dev/null` ]] && echo ' on '
+    [[ `git branch 2> /dev/null` ]] && echo ' on'
+}
+
+# Prompt with vc branch and status colored
+PS1=$PINK"\u"$COLOR_OFF" at "$ORANGE"\h"$COLOR_OFF" in "$YELLOW"\w"$COLOR_OFF$(in_repo)$GREEN$(hg_branch)$PINK$(hg_dirty)$COLOR_OFF'$(
     if [[ $(__git_ps1) =~ \*\)$ ]]
-    then echo "'$BLUE'"$(__git_ps1 " (%s)")
+    then echo "'$GREEN'"$(__git_ps1 " (%s)")
     elif [[ $(__git_ps1) =~ \+\)$ ]]
     then echo "'$MAGENTA'"$(__git_ps1 " (%s)")
     else echo "'$CYAN'"$(__git_ps1 " (%s)")
     fi)'$COLOR_OFF"\n$ "
+
+export PS1
