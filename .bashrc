@@ -126,10 +126,10 @@ in_repo() {
 # Prompt with vc branch and status colored
 PS1=$PINK"\u"$COLOR_OFF" at "$ORANGE"\h"$COLOR_OFF" in "$YELLOW"\w"$COLOR_OFF"\$(in_repo)"$GREEN"\$(hg_branch)"$PINK"\$(hg_dirty)"$COLOR_OFF'$(
     if [[ $(__git_ps1) =~ \*\)$ ]]
-    then echo "'$GREEN'"$(__git_ps1 "(%s)")
+    then echo "'$CYAN'"$(__git_ps1 "(%s)")
     elif [[ $(__git_ps1) =~ \+\)$ ]]
     then echo "'$MAGENTA'"$(__git_ps1 "(%s)")
-    else echo "'$CYAN'"$(__git_ps1 "(%s)")
+    else echo "'$GREEN'"$(__git_ps1 "(%s)")
     fi)'$COLOR_OFF"\n$ "
 
 export PS1
