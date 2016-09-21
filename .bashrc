@@ -42,14 +42,14 @@ alias cp="cp -i"
 set -o noclobber
 
 # 2.2) Listing, directories, and motion
+alias ls="ls --color=auto"
 alias ll="ls -alrtF --color"
 alias la="ls -A"
 alias ..='cd ..'
 alias ...='cd ..;cd ..'
 
 # 2.4) grep options
-alias rgrep='rgrep -n'
-export GREP_OPTIONS='--color=auto'
+alias rgrep='rgrep -n --color=auto'
 export GREP_COLOR='1;31' # green for matches
 
 # 2.5) sort options
@@ -65,6 +65,9 @@ alias hb='hg branch'
 
 # 2.7) Python shortcuts
 alias ss='python -m SimpleHTTPServer'
+
+# 2.8) Utils
+alias pass='openssl rand -base64 16'
 
 ## -------------------------
 ## --  Set up virtualenv  --
