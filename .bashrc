@@ -83,6 +83,11 @@ fi
 ## --    Set up env     --
 ## -----------------------
 
+# Load system aliases
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
 # Bash completion
 # require: apt-get install bash-completion
 # Use bash-completion, if available
