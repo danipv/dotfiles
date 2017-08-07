@@ -47,6 +47,8 @@ alias ll="ls -alrtF --color"
 alias la="ls -A"
 alias ..='cd ..'
 alias ...='cd ..;cd ..'
+alias pp="pushd"
+alias ppp="popd"
 
 # 2.4) grep options
 alias rgrep='rgrep -n --color=auto'
