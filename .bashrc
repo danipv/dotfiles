@@ -42,8 +42,13 @@ alias cp="cp -i"
 set -o noclobber
 
 # 2.2) Listing, directories, and motion
-alias ls="ls --color=auto"
-alias ll="ls -alrtF --color"
+if [ $(uname) == "Darwin" ]
+then
+  alias ll="ls -alrtF"
+else
+  alias ls="ls --color=auto"
+  alias ll="ls -alrtF --color"
+fi
 alias la="ls -A"
 alias ..='cd ..'
 alias ...='cd ..;cd ..'
